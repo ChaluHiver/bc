@@ -1,5 +1,5 @@
-[![Coverage Status](https://coveralls.io/repos/github/anuragmaher/temp/badge.svg?branch=master)](https://coveralls.io/github/anuragmaher/temp?branch=master)
-[![Build Status](https://travis-ci.org/anuragmaher/temp.svg?branch=master)](https://travis-ci.org/anuragmaher/temp)
+[![Coverage Status](https://coveralls.io/repos/github/chaluhiver/temp/badge.svg?branch=master)](https://coveralls.io/github/chaluhiver/temp?branch=master)
+[![Build Status](https://travis-ci.org/ChaluHiver/bc.svg?branch=master)](https://travis-ci.org/chaluhiver/temp)
 
 # Work in Progress
 
