@@ -90,9 +90,9 @@ Deployment Type: tet `
   })
 
 
-  test('sets `pending` status if PR has everything', async () => {
+  test('sets `pending` status if body is missing', async () => {
     const context = buildContext()
-    context.payload.pull_request.body = ` `
+    context.payload.pull_request.body = ``
     const expectedBody = {
       state: 'pending',
       target_url: 'https://github.com/ChaluHiver',
