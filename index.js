@@ -1,6 +1,7 @@
 module.exports = probotPlugin
 
 const handlePullRequestChange = require('./lib/handle-pull-request-change')
+const handleBodyChange = require('./lib/handle-body-change')
 
 function probotPlugin (robot) {
   robot.on([
