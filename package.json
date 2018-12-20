@@ -16,7 +16,7 @@
     "dev": "nodemon",
     "start": "probot run ./index.js",
     "lint": "standard --fix",
-    "test": "jest --coverage --coverageReporters=text-lcov | coveralls && standard",
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "test1": "jest",
     "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
