@@ -138,6 +138,31 @@ Deployment Type: tet `
 
 
 
+  test('sets `pending` status if PR has everything', async () => {
+    const context = buildContext()
+    context.payload.pull_request.body = ` Corner cases:
+    Configuration Changes:
+    JIRA url: hsc
+    Collaborators: chalukya
+    What can be affected:
+    Things to be tested:`
+    const expectedBody = {
+      state: 'pending',
+      target_url: 'https://github.com/ChaluHiver',
+      description: 'THINGS TO BE TESTED Missing',
+      context: 'Pull Request Tests'
+    }
+
+    const mock = nock('https://api.github.com')
+      .get('/repos/sally/project-x/pulls/123/commits')
+      .reply(200, unsemanticCommits())
+      .post('/repos/sally/project-x/statuses/abcdefg', expectedBody)
+      .reply(200)
+
+    await handlePullRequestChange(context)
+    expect(mock.isDone()).toBe(false)
+  })
+
 
 
 test('sets `pending` status if PR doesnt have Things to be tested', async () => {
