@@ -12,37 +12,17 @@ describe('handlePullRequestChange', () => {
 
   test('sets `pending` status if PR doesnt have deployment type', async () => {
     const context = buildContext()
-    context.payload.pull_request.title = `Corner cases:
+    context.payload.pull_request.body = `Corner cases:
 Configuration Changes:
 JIRA url: xyz
 Collaborators: chalukya
 What can be affected:
 Things to be tested:xyx 
-deployment type: `
+Deployment Type: `
     const expectedBody = {
       state: 'pending',
-      target_url: 'https://github.com/anuragmaher',
-      description: 'WIP present check',
-      context: 'Pull Request Tests'
-    }
-
-    const mock = nock('https://api.github.com')
-      .get('/repos/sally/project-x/pulls/123/commits')
-      .reply(200, unsemanticCommits())
-      .post('/repos/sally/project-x/statuses/abcdefg', expectedBody)
-      .reply(200)
-
-    await handlePullRequestChange(context)
-    expect(mock.isDone()).toBe(false)
-  })
-
-  test('sets `success` status if PR has title without WIP', async () => {
-    const context = buildContext()
-    context.payload.pull_request.title = 'do a thing'
-    const expectedBody = {
-      state: 'success',
-      target_url: 'https://github.com/anuragmaher',
-      description: 'WIP present check',
+      target_url: 'https://github.com/ChaluHiver',
+      description: 'DEPLOYMENT TYPE missing',
       context: 'Pull Request Tests'
     }
 
